@@ -59,31 +59,15 @@ export const styles = StyleSheet.create({
     shadowRadius: 5,
     elevation: 8,
   },
-  buttonDisabled: {
-    backgroundColor: "#C0C0C0", // Cinza para indicar estado desabilitado
-    shadowOpacity: 0.2,
-    elevation: 2,
-  },
   buttonBorder: {
     backgroundColor: "#F0C14B",
     borderRadius: 4,
     borderWidth: 0.2,
     borderColor: "#8B4513",
-  },
-  buttonBorderDisabled: {
-    backgroundColor: "#D3D3D3", // Cinza claro
-    borderColor: "#A9A9A9",
-    opacity: 0.7,
-  },
-  buttonContent: {
-    flex: 1,
-    justifyContent: "center",
-    alignItems: "center",
     width: "100%",
     height: "100%",
-  },
-  buttonContentDisabled: {
-    backgroundColor: "#D3D3D3",
+    justifyContent: "center",
+    alignItems: "center",
   },
   buttonText: {
     fontSize: 26,
@@ -93,9 +77,5 @@ export const styles = StyleSheet.create({
     textShadowColor: "rgba(255, 255, 255, 0.5)",
     textShadowOffset: { width: 1, height: 1 },
     textShadowRadius: 2,
-  },
-  buttonTextDisabled: {
-    color: "#808080",
-    textShadowColor: "rgba(255, 255, 255, 0.1)",
   },
 });

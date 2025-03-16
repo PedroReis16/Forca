@@ -6,15 +6,15 @@ import {
   Text,
   TextInput,
   ScrollView,
+  Button,
 } from "react-native";
-import { Link } from "expo-router";
-import { styles } from "../styles/index-style";
+import { routeToSolutionPage } from "../scripts/index-script";
+import { styles } from "../styles/pages/index-style";
+import { CustomSnackBar } from "../components/snackbar";
 
 export default function Page() {
   const [word, setWord] = useState("");
-  const [hint, setHint] = useState("");
-
-  const isButtonDisabled = word.length === 0 || hint.length === 0;
+  const [wordTip, setHint] = useState("");
 
   return (
     <ScrollView
@@ -43,7 +43,7 @@ export default function Page() {
               placeholder="Insira uma dica"
               placeholderTextColor="#8B4513"
               maxLength={30}
-              value={hint}
+              value={wordTip}
               onChangeText={setHint}
             />
           </View>
@@ -51,32 +51,18 @@ export default function Page() {
 
         <View>
           <TouchableOpacity
-            style={[styles.button, isButtonDisabled && styles.buttonDisabled]}
-            disabled={isButtonDisabled}
+            style={[styles.button]}
+            onPress={() => {
+              routeToSolutionPage(word, wordTip);
+            }}
           >
-            <Link
-              href={isButtonDisabled ? "#" : "/solution-page"}
-              style={styles.buttonBorder}
-            >
-              <View
-                style={[
-                  styles.buttonContent,
-                  isButtonDisabled && styles.buttonContentDisabled,
-                ]}
-              >
-                <Text
-                  style={[
-                    styles.buttonText,
-                    isButtonDisabled && styles.buttonTextDisabled,
-                  ]}
-                >
-                  Jogar
-                </Text>
-              </View>
-            </Link>
+            <View style={styles.buttonBorder}>
+              <Text style={[styles.buttonText]}>Jogar</Text>
+            </View>
           </TouchableOpacity>
         </View>
       </View>
+      <CustomSnackBar />
     </ScrollView>
   );
 }

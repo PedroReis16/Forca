@@ -1,5 +1,5 @@
 import { Text, View } from "react-native";
-import { style } from "../styles/solution-page-style";
+import { style } from "../styles/pages/solution-page-style";
 
 export default function Page() {
   return (
