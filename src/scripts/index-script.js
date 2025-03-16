@@ -13,7 +13,10 @@ export function routeToSolutionPage(word, wordTip) {
     return;
   }
 
-  router.push("solution-page", { word, wordTip });
+  router.push({
+    pathname: "solution-page",
+    params: { word: word, wordTip: wordTip },
+  });
 }
 
 function showSnackbar(message) {
