@@ -4,13 +4,13 @@ export default function Layout() {
   return (
     <Stack
       screenOptions={{
-        headerStyle: { backgroundColor: "#f4511e" },
+        headerStyle: { backgroundColor: "#c7bcba" },
         headerTintColor: "#fff",
         headerTitleStyle: { fontWeight: "bold" },
       }}
     >
       <Stack.Screen name="index" options={{ headerShown: false }} />
-      <Stack.Screen name="solution-page" />
+      <Stack.Screen name="solution-page" options={{ title: "" }} />
     </Stack>
   );
 }
