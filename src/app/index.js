@@ -11,10 +11,17 @@ import {
 import { routeToSolutionPage } from "../scripts/index-script";
 import { styles } from "../styles/pages/index-style";
 import { CustomSnackBar } from "../components/snackbar";
+import { TecladoVirtual } from "../components/keyboard";
+import { WordView } from "../components/word-view";
 
 export default function Page() {
   const [word, setWord] = useState("");
   const [wordTip, setHint] = useState("");
+
+  const [palavras, setPalavras] = useState(["banana", "peugeot"]);
+  const [dicas, setDicas] = useState(["fruta", "marca de carro"])
+  const [charUsados, setCharUsados] = useState([]);
+  const [idxPalavra, setIdxPalavra] = useState(0);
 
   return (
     <ScrollView
@@ -26,7 +33,11 @@ export default function Page() {
           style={styles.gameLogo}
           source={require("../../assets/icone.png")}
         />
-        <View style={styles.gameInputs}>
+
+        
+        <View>
+
+       {/*  <View style={styles.gameInputs}>
           <View style={[styles.inputContainer, styles.wordInput]}>
             <TextInput
               style={styles.input}
@@ -60,7 +71,20 @@ export default function Page() {
               <Text style={[styles.buttonText]}>Jogar</Text>
             </View>
           </TouchableOpacity>
+        </View> */}
+        
         </View>
+
+        <WordView word={palavras.at(idxPalavra)} charUsados={charUsados} />
+        <TecladoVirtual
+          pressedKeys={charUsados}
+          onKeyPress={(key) => {
+            if (!charUsados.includes(key.toLowerCase())) {
+              setCharUsados([...charUsados, key.toLowerCase()]);
+            }
+            console.log(charUsados)
+          }}
+        />
       </View>
       <CustomSnackBar />
     </ScrollView>

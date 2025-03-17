@@ -16,4 +16,9 @@ export const styles = StyleSheet.create({
     backgroundColor: "#f0f0f0",
     borderRadius: 5,
   },
+  disabledKey: {
+    opacity: 0.5,
+    backgroundColor: "#ccc",
+  }
+  
 });
