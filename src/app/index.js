@@ -8,7 +8,7 @@ import {
   ScrollView,
   Button,
 } from "react-native";
-import { routeToSolutionPage } from "../scripts/index-script";
+import { routeToSolutionPage, useRandomPhrase } from "../scripts/index-script";
 import { styles } from "../styles/pages/index-style";
 import { CustomSnackBar } from "../components/snackbar";
 
@@ -51,9 +51,22 @@ export default function Page() {
 
         <View>
           <TouchableOpacity
+            style={[styles.randomOption]}
+            onPress={() => useRandomPhrase()}
+          >
+            <Text style={styles.randomOptionText}>
+              Jogar com frase aleatória
+            </Text>
+          </TouchableOpacity>
+        </View>
+
+        <View>
+          <TouchableOpacity
             style={[styles.button]}
             onPress={() => {
               routeToSolutionPage(word, wordTip);
+              setWord("");
+              setHint("");
             }}
           >
             <View style={styles.buttonBorder}>

@@ -13,7 +13,18 @@ export const styles = StyleSheet.create({
   },
   key: {
     padding: 10,
-    backgroundColor: "#f0f0f0",
     borderRadius: 5,
+    borderColor: "#8B4513",
+    borderWidth: 2,
+  },
+  keyFont: {
+    fontSize: 14,
+    color: "#8B4513",
+  },
+  keyDisabled: {
+    borderColor: "#A9A9A9",
+  },
+  keyFontDisabled: {
+    color: "#A9A9A9",
   },
 });

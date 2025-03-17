@@ -14,18 +14,25 @@ export function Keyboard({ onKeyPress, pressedKeys }) {
     <View style={styles.keyboardContainer}>
       {keys.map((row, rowIndex) => (
         <View key={rowIndex} style={styles.row}>
-          {row.map((key) => (
-            <TouchableOpacity
-              key={key}
-              style={styles.key}
-              disabled={pressedKeys.includes(key.toLowerCase())}
-              onPress={() => {
-                onKeyPress(key.toLowerCase());
-              }}
-            >
-              <Text>{key}</Text>
-            </TouchableOpacity>
-          ))}
+          {row.map((key) => {
+            const isDisabled = pressedKeys.includes(key.toLowerCase());
+            return (
+              <TouchableOpacity
+                key={key}
+                style={[styles.key, isDisabled && styles.keyDisabled]}
+                disabled={isDisabled}
+                onPress={() => {
+                  onKeyPress(key.toLowerCase());
+                }}
+              >
+                <Text
+                  style={[styles.keyFont, isDisabled && styles.keyFontDisabled]}
+                >
+                  {key}
+                </Text>
+              </TouchableOpacity>
+            );
+          })}
         </View>
       ))}
     </View>

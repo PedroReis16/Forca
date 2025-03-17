@@ -45,6 +45,17 @@ export const styles = StyleSheet.create({
   wordInput: {
     marginBottom: 20,
   },
+  randomOption: {
+    marginTop: 20,
+  },
+  randomOptionText: {
+    fontSize: 20,
+    color: "#8B4513",
+    fontFamily: "Luckiest Guy",
+    textShadowColor: "rgba(255, 255, 255, 0.5)",
+    textShadowOffset: { width: 1, height: 1 },
+    textShadowRadius: 2,
+  },
   button: {
     width: 140,
     height: 50,
