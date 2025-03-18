@@ -10,6 +10,7 @@ import {
 } from "react-native";
 import { routeToSolutionPage, useRandomPhrase } from "../scripts/index-script";
 import { styles } from "../styles/pages/index-style";
+import { baseStyles } from "../styles/pages/style";
 import { CustomSnackBar } from "../components/snackbar";
 
 export default function Page() {
@@ -62,15 +63,15 @@ export default function Page() {
 
         <View>
           <TouchableOpacity
-            style={[styles.button]}
+            style={[baseStyles.button]}
             onPress={() => {
               routeToSolutionPage(word, wordTip);
               setWord("");
               setHint("");
             }}
           >
-            <View style={styles.buttonBorder}>
-              <Text style={[styles.buttonText]}>Jogar</Text>
+            <View style={baseStyles.buttonBorder}>
+              <Text style={[baseStyles.buttonText]}>Jogar</Text>
             </View>
           </TouchableOpacity>
         </View>

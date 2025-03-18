@@ -18,4 +18,20 @@ export const styles = StyleSheet.create({
     fontSize: 20,
     marginBottom: 20,
   },
+  finalGameContainer: {
+    alignItems: "center",
+  },
+  finalGameMessage: {
+    fontSize: 32,
+    fontFamily: "Luckiest Guy",
+    fontWeight: "bold",
+    paddingBottom: 8
+  },
+  tryAgain: {
+    paddingVertical: 16,
+    fontSize: 18,
+    color: "#8B4513",
+    fontFamily: "Luckiest Guy",
+    fontWeight: "bold",
+  },
 });

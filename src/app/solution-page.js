@@ -1,5 +1,6 @@
 import { ScrollView, Text, TouchableOpacity, View } from "react-native";
 import { styles } from "../styles/pages/solution-page-style";
+import { baseStyles } from "../styles/pages/style";
 import { useLocalSearchParams } from "expo-router";
 import { Keyboard } from "../components/keyboard";
 import { WordView } from "../components/word-view";
@@ -28,29 +29,30 @@ export default function Page() {
         <Text style={styles.wordTip}>{wordTip}</Text>
         <Gallow erros={errors} />
 
+        <WordView word={word} revealedKeys={revealedCharacter} />
         {hasWon && (
-          <View>
-            <Text style={styles.winMessage}>Você ganhou!</Text>
+          <View style={styles.finalGameContainer}>
+            <Text style={styles.finalGameMessage}>Você ganhou!</Text>
 
-            <TouchableOpacity onPress={() => returnToIndex()}>
-              <Text style={styles.tryAgain}>Jogar novamente</Text>
-            </TouchableOpacity>
+            {styledButton({ text: "Sair", onPress: () => returnToIndex() })}
           </View>
         )}
         {hasLost && (
-          <View>
-            <Text style={styles.lostMessage}>Você perdeu!</Text>
-            <TouchableOpacity onPress={() => window.location.reload()}>
+          <View style={styles.finalGameContainer}>
+            <Text style={styles.finalGameMessage}>Você perdeu!</Text>
+            <TouchableOpacity onPress={() => {
+              setCharacter([]);
+              setErros(0);
+              setWin(false);
+              setLost(false);
+            }}>
               <Text style={styles.tryAgain}>Tentar novamente</Text>
             </TouchableOpacity>
-            <TouchableOpacity onPress={() => returnToIndex()}>
-              <Text style={styles.tryAgain}>Sair</Text>
-            </TouchableOpacity>
+            {styledButton({ text: "Sair", onPress: () => returnToIndex() })}
           </View>
         )}
         {!hasWon && !hasLost && (
           <View style={styles.gameContent}>
-            <WordView word={word} revealedKeys={revealedCharacter} />
             <CharacterView characters={revealedCharacter} />
             <Keyboard
               pressedKeys={revealedCharacter}
@@ -74,4 +76,17 @@ export default function Page() {
       </View>
     </ScrollView>
   );
+}
+
+function styledButton({ text, onPress }) {
+  return (<View>
+    <TouchableOpacity
+      style={[baseStyles.button]}
+      onPress={() => onPress()}
+    >
+      <View style={baseStyles.buttonBorder}>
+        <Text style={[baseStyles.buttonText]}>{text}</Text>
+      </View>
+    </TouchableOpacity>
+  </View>);
 }
