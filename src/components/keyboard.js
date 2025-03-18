@@ -23,7 +23,7 @@ export function TecladoVirtual({ onKeyPress, pressedKeys }) {
                 onKeyPress(key.toLowerCase());
               }}
             >
-              <Text>{key}</Text>
+              <Text style={styles.keyTxt}>{key}</Text>
             </TouchableOpacity>
           ))}
         </View>

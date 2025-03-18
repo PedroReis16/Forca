@@ -19,6 +19,9 @@ export const styles = StyleSheet.create({
   disabledKey: {
     opacity: 0.5,
     backgroundColor: "#ccc",
+  },
+  keyTxt: {
+    fontSize: 15
   }
   
 });

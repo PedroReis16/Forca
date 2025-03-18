@@ -3,7 +3,7 @@ import { StyleSheet } from "react-native";
 export const styles = StyleSheet.create({
   container: {
     backgroundColor: "#c7bcba",
-    paddingTop: 64,
+    paddingTop: 5,
     flexGrow: 1,
   },
   pageContent: {
@@ -14,7 +14,7 @@ export const styles = StyleSheet.create({
   gameLogo: {
     width: 250,
     height: 130,
-    marginBottom: 20,
+    marginBottom: 10,
   },
   gameInputs: {
     width: "100%",
@@ -78,4 +78,40 @@ export const styles = StyleSheet.create({
     textShadowOffset: { width: 1, height: 1 },
     textShadowRadius: 2,
   },
+  forcaImg: {
+    width: 200,          
+    height: 250,         
+    resizeMode: "contain",
+    alignSelf: "center", 
+    marginBottom: 20,    
+  },
+  txtDica: {
+    fontSize:20
+  },
+  overlay: {
+    position: 'absolute',
+    top: 250,
+    justifyContent: 'center',
+    alignItems: 'center',
+    zIndex: 999,
+  },
+  popup: {
+    backgroundColor: 'white',
+    padding: 20,
+    borderRadius: 15,
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
+  text: {
+    fontSize: 18,
+    marginBottom: 10,
+  },
+  txtAvancar: {
+    fontSize: 25
+  },
+  btnAvancar: {
+    backgroundColor: "rgba(57, 233, 115, 0.86)",
+    padding: 15,
+    borderRadius: 30
+  }
 });
