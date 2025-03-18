@@ -11,7 +11,9 @@ export function CharacterView({ characters }) {
             <Text key={index}>{character}</Text>
           </View>
         ) : (
-          <Text key={index}>{character}</Text>
+          <View style={styles.characterContainer}>
+            <Text>{character}</Text>
+          </View>
         )
       )}
     </View>

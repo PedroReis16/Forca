@@ -16,7 +16,11 @@ export function WordView({ word, revealedKeys }) {
             <Text
               style={[
                 styles.character,
-                { opacity: revealedKeys.includes(character.toLowerCase()) ? 1 : 0 },
+                {
+                  opacity: revealedKeys.includes(character.toLowerCase())
+                    ? 1
+                    : 0,
+                },
               ]}
             >
               {character}

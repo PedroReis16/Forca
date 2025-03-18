@@ -11,9 +11,11 @@ export const styles = StyleSheet.create({
     paddingVertical: 60,
     flex: 1,
   },
+  gameContent: {
+    alignItems: "center",
+  },
   wordTip: {
     fontSize: 20,
     marginBottom: 20,
   },
-  
 });
