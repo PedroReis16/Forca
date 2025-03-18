@@ -19,26 +19,26 @@ import forca5 from "../../assets/forca5.png";
 import forca6 from "../../assets/forca6.png";
 
 export default function Page() {
-  const [palavras, setPalavras] = useState(["palmeiras", 
-                                            "gato", 
-                                            "arriscou", 
-                                            "react native", 
-                                            "java", 
-                                            "pressa", 
-                                            "roma", 
-                                            "peixinho", 
-                                            "problemas", 
-                                            "velho"]);
+  const [palavras, setPalavras] = useState(["palmeiras",
+    "gato",
+    "arriscou",
+    "react native",
+    "java",
+    "pressa",
+    "roma",
+    "peixinho",
+    "problemas",
+    "velho"]);
   const [dicas, setDicas] = useState(["clube de futebol paulista",
-                                       "quem caçou sem cão usou...",
-                                       "o que fez quem petisca",
-                                       "desenvolvimento mobile",
-                                       "melhor linguagem... dizem os loucos",
-                                       "inimiga da perfeição", 
-                                       "quem chegou em... tem boca", 
-                                       "filho do peixe", 
-                                       "todos tem... cada um com o seus", 
-                                       "do que morreu o seguro"])
+    "quem caçou sem cão usou...",
+    "o que fez quem petisca",
+    "desenvolvimento mobile",
+    "melhor linguagem... dizem os loucos",
+    "inimiga da perfeição",
+    "quem chegou em... tem boca",
+    "filho do peixe",
+    "todos tem... cada um com o seus",
+    "do que morreu o seguro"])
   const [charUsados, setCharUsados] = useState([]);
   const [idxPalavra, setIdxPalavra] = useState(0);
   const [erros, setErros] = useState(0);
@@ -47,6 +47,11 @@ export default function Page() {
 
   const imagemAtual = imagensForca[erros];
 
+  useEffect(() => {
+    const randomIndex = Math.floor(Math.random() * palavras.length);
+    setIdxPalavra(randomIndex)
+    console.log(randomIndex)
+  }, [])
 
   const palavraAtual = palavras[idxPalavra]
 
@@ -70,31 +75,14 @@ export default function Page() {
   }, [erros])
 
   function reiniciaJogo() {
-    setIdxPalavra(0);
+    let randomIndex;
+    do {
+      randomIndex = Math.floor(Math.random() * palavras.length);
+    } while (randomIndex === idxPalavra);
+    console.log(randomIndex)
+    setIdxPalavra(randomIndex);
     setErros(0);
-    setCharUsados([])
-  }
-  function avancarPalavra() {
-    console.log(palavras.length)
-    console.log(idxPalavra)
-    if (idxPalavra < palavras.length-1) {
-      console.log("to no if")
-      setIdxPalavra(idxPalavra + 1)
-      setErros(0);
-      setCharUsados([])
-    } else {
-      console.log("to no else")
-      Alert.alert(
-        "Vitória",
-        "Você passou todas palavras.",
-        [
-          {
-            text: "Jogar novamente",
-            onPress: () => reiniciaJogo(),
-          },
-        ]
-      );
-    }
+    setCharUsados([]);
   }
 
   return (
@@ -113,7 +101,7 @@ export default function Page() {
           <View style={styles.overlay}>
             <View style={styles.popup}>
               <Text style={styles.text}>Parabéns, você acertou!</Text>
-              <TouchableOpacity onPress={avancarPalavra} style={styles.btnAvancar}>
+              <TouchableOpacity onPress={reiniciaJogo} style={styles.btnAvancar}>
                 <Text style={styles.txtAvancar}>Próxima palavra</Text>
               </TouchableOpacity>
             </View>
