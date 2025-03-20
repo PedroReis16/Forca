@@ -12,7 +12,6 @@ const words = [
   { word: "Planeta", tip: "Corpo celeste no espaço" },
   { word: "Pinguim", tip: "Ave que não voa e vive no frio" },
   { word: "Pirata", tip: "Navegador que rouba no mar" },
-  { word: "Jacaré", tip: "Réptil de água doce" },
   { word: "Sanfona", tip: "Instrumento de fole" },
   { word: "Abelha", tip: "Inseto que produz mel" },
   { word: "Castelo", tip: "Fortaleza medieval" },
@@ -22,13 +21,10 @@ const words = [
   { word: "Trem", tip: "Veículo sobre trilhos" },
   { word: "Telefone", tip: "Dispositivo de comunicação" },
   { word: "Montanha", tip: "Grande elevação natural" },
-  { word: "Relógio", tip: "Marca o tempo" },
   { word: "Jardim", tip: "Espaço com plantas e flores" },
   { word: "Flauta", tip: "Instrumento de sopro" },
-  { word: "Camaleão", tip: "Muda de cor para se camuflar" },
   { word: "Sombra", tip: "Criada pela luz e objetos" },
   { word: "Pintura", tip: "Arte com cores e pincéis" },
-  { word: "Chapéu", tip: "Acessório para a cabeça" },
   { word: "Baleia", tip: "Maior mamífero marinho" },
   { word: "Ponte", tip: "Liga dois pontos sobre água" },
   { word: "Tesouro", tip: "Riqueza escondida" },
@@ -49,7 +45,6 @@ const words = [
   { word: "Domínio", tip: "Endereço de um site" },
   { word: "Router", tip: "Distribui internet" },
   { word: "Login", tip: "Acesso ao sistema" },
-  { word: "Código", tip: "Instruções para um sistema" }
 ];
 
 export function routeToSolutionPage(word, wordTip) {
